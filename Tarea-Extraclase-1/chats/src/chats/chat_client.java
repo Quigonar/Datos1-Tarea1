@@ -3,6 +3,8 @@ package chats;
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class chat_client extends javax.swing.JFrame {
@@ -93,12 +95,19 @@ public class chat_client extends javax.swing.JFrame {
         try{
             String messageout = "";
             messageout = message_text.getText().trim();
-            doutput.writeUTF(messageout);
-            message_area.setText(message_area.getText().trim()+"\n Client:\t"+messageout);
-            message_text.setText("");
-            
-            }catch(Exception e){
-            
+            if (messageout.isEmpty()){
+                throw new InvalidTextException();
+                
+            }else{
+                doutput.writeUTF(messageout);
+                message_area.setText(message_area.getText().trim()+"\n Client:\t"+messageout);
+                message_text.setText("");
+            }
+  
+            }catch(InvalidTextException e){
+                System.out.println(e.getMessage());
+        } catch (Exception e) {
+            ///Exceptions
         }
     }//GEN-LAST:event_message_sendActionPerformed
 
@@ -106,7 +115,7 @@ public class chat_client extends javax.swing.JFrame {
         
     }//GEN-LAST:event_message_textActionPerformed
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese un puerto: ");
         str_port = sc.nextLine();
@@ -130,7 +139,7 @@ public class chat_client extends javax.swing.JFrame {
                 messagin = dinput.readUTF();
                 message_area.setText(message_area.getText().trim()+"\n Server:\t"+messagin);
             }
-        }catch(Exception e){
+        }catch(SocketException e){
             //Exceptions
         }
     }

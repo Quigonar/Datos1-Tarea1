@@ -103,15 +103,19 @@ public class chat_server extends javax.swing.JFrame {
             
             String messageout = "";
             messageout = message_text.getText().trim();
-            doutput.writeUTF(messageout);
-            message_area.setText(message_area.getText().trim()+"\n Server:\t"+messageout);
-            message_text.setText("");
+            if (messageout.isEmpty()){
+                throw new InvalidTextException();
+            }else{
+                doutput.writeUTF(messageout);
+                message_area.setText(message_area.getText().trim()+"\n Server:\t"+messageout);
+                message_text.setText("");
+            }
             
-            
+            }catch (InvalidTextException e){
+                System.out.println(e.getMessage());
         }catch(Exception e){
             //Exceptions
         }
-        
     }//GEN-LAST:event_message_sendActionPerformed
 
     private void message_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_message_textActionPerformed
