@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> f89782428a0e39fc4934bdcec63ef093566d3bab
 package chats;
 
 public class InvalidTextException extends Exception {
