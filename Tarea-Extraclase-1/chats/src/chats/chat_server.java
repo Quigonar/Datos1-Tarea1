@@ -1,8 +1,11 @@
 package chats;
 
+import static chats.chat_client.messageout_lowercase;
 import java.io.*;
 import java.net.*;
 import java.util.Random;
+import java.util.List;
+import java.util.Arrays;
 
 
 public class chat_server extends javax.swing.JFrame {
@@ -15,6 +18,10 @@ public class chat_server extends javax.swing.JFrame {
     static Random rand = new Random();
     static int port = rand.nextInt(65535-1080+1)+1080;
     static String str_port = String.valueOf(port);
+    static String messageout_lowercase = "";
+    String[] curseWords = {"nigga","nigger","fuck","shit","bitch","faggot"};
+    List<String> curseWordsList = Arrays.asList(curseWords);
+    
             
     
     public chat_server() {
@@ -103,13 +110,23 @@ public class chat_server extends javax.swing.JFrame {
             
             String messageout = "";
             messageout = message_text.getText().trim();
+            messageout_lowercase = messageout.toLowerCase();
+
             if (messageout.isEmpty()){
-                throw new InvalidTextException();
+                throw new InvalidTextException("Blank message was tried to be sent.");
+            
+            }else if (messageout.length() > 256){
+                throw new InvalidTextException("The message exceeds the maximum amount of characters.");
+            
+            }else if (curseWordsList.stream().anyMatch(messageout_lowercase::contains)){
+                throw new InvalidTextException("The message contains a prohibited word");
+            
             }else{
                 doutput.writeUTF(messageout);
                 message_area.setText(message_area.getText().trim()+"\n Server:\t"+messageout);
                 message_text.setText("");
-            }
+                }
+            
             
             }catch (InvalidTextException e){
                 System.out.println(e.getMessage());

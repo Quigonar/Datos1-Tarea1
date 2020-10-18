@@ -14,7 +14,9 @@ public class chat_client extends javax.swing.JFrame {
     static DataOutputStream doutput;
     static int port;
     static String str_port = String.valueOf(port);
-    
+    static String messageout_lowercase = "";
+    String[] curseWords = {"nigga","nigger","fuck","shit","bitch","faggot"};
+    List<String> curseWordsList = Arrays.asList(curseWords);
     
     public chat_client() {
         initComponents();
@@ -95,13 +97,21 @@ public class chat_client extends javax.swing.JFrame {
         try{
             String messageout = "";
             messageout = message_text.getText().trim();
+            messageout_lowercase = messageout.toLowerCase();
             if (messageout.isEmpty()){
-                throw new InvalidTextException();
-                
-            }else{
+                throw new InvalidTextException("Blank message was tried to be sent.");
+            
+            }else if (messageout.length() > 256){
+                throw new InvalidTextException("The message exceeds the maximum amount of characters.");
+            
+            }else if (curseWordsList.stream().anyMatch(messageout_lowercase::contains)){
+                throw new InvalidTextException("The message contains a prohibited word");
+            
+            } else{
                 doutput.writeUTF(messageout);
                 message_area.setText(message_area.getText().trim()+"\n Client:\t"+messageout);
                 message_text.setText("");
+                
             }
   
             }catch(InvalidTextException e){
