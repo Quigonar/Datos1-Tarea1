@@ -113,13 +113,13 @@ public class chat_server extends javax.swing.JFrame {
             messageout_lowercase = messageout.toLowerCase();
 
             if (messageout.isEmpty()){
-                throw new InvalidTextException("Blank message was tried to be sent.");
+                throw new InvalidTextException_Server("Blank message was attempted to be sent.");
             
-            }else if (messageout.length() > 256){
-                throw new InvalidTextException("The message exceeds the maximum amount of characters.");
+            }else if (messageout.length() > 64){
+                throw new InvalidTextException_Server("The message exceeds the maximum amount of characters.");
             
             }else if (curseWordsList.stream().anyMatch(messageout_lowercase::contains)){
-                throw new InvalidTextException("The message contains a prohibited word");
+                throw new InvalidTextException_Server("The message contains a prohibited word");
             
             }else{
                 doutput.writeUTF(messageout);
@@ -128,7 +128,7 @@ public class chat_server extends javax.swing.JFrame {
                 }
             
             
-            }catch (InvalidTextException e){
+            }catch (InvalidTextException_Server e){
                 System.out.println(e.getMessage());
         }catch(Exception e){
             //Exceptions

@@ -15,6 +15,10 @@ public class chat_client extends javax.swing.JFrame {
     static int port;
     static String str_port = String.valueOf(port);
     static String messageout_lowercase = "";
+
+    private static void or(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     String[] curseWords = {"nigga","nigger","fuck","shit","bitch","faggot"};
     List<String> curseWordsList = Arrays.asList(curseWords);
     
@@ -99,13 +103,13 @@ public class chat_client extends javax.swing.JFrame {
             messageout = message_text.getText().trim();
             messageout_lowercase = messageout.toLowerCase();
             if (messageout.isEmpty()){
-                throw new InvalidTextException("Blank message was tried to be sent.");
+                throw new InvalidTextException_Client("Blank message was attempted to be sent.");
             
-            }else if (messageout.length() > 256){
-                throw new InvalidTextException("The message exceeds the maximum amount of characters.");
+            }else if (messageout.length() > 64){
+                throw new InvalidTextException_Client("The message exceeds the maximum amount of characters.");
             
             }else if (curseWordsList.stream().anyMatch(messageout_lowercase::contains)){
-                throw new InvalidTextException("The message contains a prohibited word");
+                throw new InvalidTextException_Client("The message contains a prohibited word");
             
             } else{
                 doutput.writeUTF(messageout);
@@ -114,7 +118,7 @@ public class chat_client extends javax.swing.JFrame {
                 
             }
   
-            }catch(InvalidTextException e){
+            }catch(InvalidTextException_Client e){
                 System.out.println(e.getMessage());
         } catch (Exception e) {
             ///Exceptions
@@ -130,7 +134,20 @@ public class chat_client extends javax.swing.JFrame {
         System.out.println("Ingrese un puerto: ");
         str_port = sc.nextLine();
         System.out.println("El puerto ingresado es: " + str_port);
-        port = Integer.valueOf(str_port);
+        
+        try{
+            port = Integer.valueOf(str_port); 
+            if ((port < 1080) || (port > 65535)){
+            throw new InvalidTextException_Client("Invalid port number");
+            
+            }
+        } catch (InvalidTextException_Client e) {
+            System.out.println(e.getMessage());
+        } catch(NumberFormatException e){
+            new InvalidTextException_Client("The port is not a number");            
+        }
+        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new chat_client().setVisible(true);
@@ -140,7 +157,6 @@ public class chat_client extends javax.swing.JFrame {
         
         
         try{
-            
             socket = new Socket("127.0.0.1", port);
             dinput = new DataInputStream(socket.getInputStream());
             doutput = new DataOutputStream(socket.getOutputStream());

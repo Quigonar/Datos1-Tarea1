@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T19:58:52</date>
+  <millis>1603331932098</millis>
+  <sequence>0</sequence>
+  <logger>chats.InvalidTextException_Server</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>The message contains a prohibited word</message>
+</record>
+<record>
+  <date>2020-10-21T19:59:13</date>
+  <millis>1603331953423</millis>
+  <sequence>1</sequence>
+  <logger>chats.InvalidTextException_Server</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>Blank message was attempted to be sent.</message>
+</record>
+<record>
+  <date>2020-10-21T19:59:37</date>
+  <millis>1603331977544</millis>
+  <sequence>2</sequence>
+  <logger>chats.InvalidTextException_Server</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>The message exceeds the maximum amount of characters.</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T20:00:46</date>
+  <millis>1603332046459</millis>
+  <sequence>0</sequence>
+  <logger>chats.InvalidTextException_Server</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>Blank message was attempted to be sent.</message>
+</record>
+<record>
+  <date>2020-10-21T20:00:50</date>
+  <millis>1603332050475</millis>
+  <sequence>1</sequence>
+  <logger>chats.InvalidTextException_Server</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Server</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>The message contains a prohibited word</message>
+</record>
+</log>

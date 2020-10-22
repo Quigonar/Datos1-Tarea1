@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T19:58:26</date>
+  <millis>1603331906551</millis>
+  <sequence>0</sequence>
+  <logger>chats.InvalidTextException_Client</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Client</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>Invalid port number</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T19:58:35</date>
+  <millis>1603331915301</millis>
+  <sequence>0</sequence>
+  <logger>chats.InvalidTextException_Client</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Client</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>The port is not a number</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T19:59:08</date>
+  <millis>1603331948959</millis>
+  <sequence>0</sequence>
+  <logger>chats.InvalidTextException_Client</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Client</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>The message exceeds the maximum amount of characters.</message>
+</record>
+<record>
+  <date>2020-10-21T19:59:16</date>
+  <millis>1603331956935</millis>
+  <sequence>1</sequence>
+  <logger>chats.InvalidTextException_Client</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Client</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>Blank message was attempted to be sent.</message>
+</record>
+<record>
+  <date>2020-10-21T19:59:22</date>
+  <millis>1603331962193</millis>
+  <sequence>2</sequence>
+  <logger>chats.InvalidTextException_Client</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Client</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>The message contains a prohibited word</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-10-21T20:00:55</date>
+  <millis>1603332055201</millis>
+  <sequence>0</sequence>
+  <logger>chats.InvalidTextException_Client</logger>
+  <level>SEVERE</level>
+  <class>chats.InvalidTextException_Client</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>Blank message was attempted to be sent.</message>
+</record>
+</log>
